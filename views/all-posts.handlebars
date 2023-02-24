@@ -1,0 +1,44 @@
+<div class="posts-panel">
+
+  <!-- Panel's header -->
+  <header class="panel-header">
+    <h1 class="panel-title">Featured Posts (List)</h1>
+  </header>
+
+  <!-- Panel's content -->
+  <div class="panel-content">
+
+    <!-- Pinned post section -->
+    <section class="pinned-post">
+      <!-- Post item -->
+    {{#each Posts}}
+      <div class="post-item">
+
+        <!-- Post's thumbnail -->
+        <a href="#" class="post-thumbnail">
+          <img src= {{image}} alt="">
+        </a>
+
+        <!-- Post's text -->
+        <div class="post-text">
+
+          <!-- Post's title -->
+          <a href="#">
+            <h3 class="post-title">{{title}}</h3>
+          </a>
+          <div class="post-meta">
+            <span class="meta"><span class="meta-icon fa fa-user-circle-o" aria-hidden="true"></span><a class="meta-text">{{User.username}}</a></span>
+            <span class="meta"><span class="meta-icon fa fa-clock-o" aria-hidden="true"></span><span class="meta-text">22/06/2030</span></span>
+          </div>
+
+          <!-- Post's summary -->
+          <div class="post-summary">
+            <p>{{body}}
+              <a href="#" class="post-read-more">Read more<span class="fa fa-chevron-circle-right" aria-hidden="true"></span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </section>
+</div>
