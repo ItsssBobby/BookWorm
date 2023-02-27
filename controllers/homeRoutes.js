@@ -1,25 +1,35 @@
 const router = require('express').Router();
-const { Book, Comment, User } = require('../models');
-
-// get all Books for homepage
-router.get('/', async (req, res) => {
+const { Post, Comment, User } = require('../models');
+const withAuth = require('../utils/auth')
+// get all Posts for homepage
+router.get('/allposts', withAuth, async (req, res) => {
   try {
-    const BookData = await Book.findAll({
+    const PostData = await Post.findAll({
       include: [User],
     });
-
-    const Books = BookData.map((Book) => Book.get({ plain: true }));
-
-    res.render('all-Books', { Books });
+    const Posts = PostData.map((Post) => Post.get({ plain: true }));
+    res.render('all-posts', { Posts, loggedIn: true });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// get single Book
-router.get('/Book/:id', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const BookData = await Book.findByPk(req.params.id, {
+    if (req.session.loggedIn) {
+      res.redirect('/allposts');
+      return;
+    }
+    res.render('homepage');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get single Post
+router.get('/post/:id', async (req, res) => {
+  try {
+    const PostData = await Post.findByPk(req.params.id, {
       include: [
         User,
         {
@@ -29,10 +39,10 @@ router.get('/Book/:id', async (req, res) => {
       ],
     });
 
-    if (BookData) {
-      const Book = BookData.get({ plain: true });
+    if (PostData) {
+      const post = PostData.get({ plain: true });
 
-      res.render('single-Book', { Book });
+      res.render('single-post', { post });
     } else {
       res.status(404).end();
     }
@@ -41,9 +51,29 @@ router.get('/Book/:id', async (req, res) => {
   }
 });
 
-router.get('/profile', (req, res) => {
+router.get('/profile/:id', withAuth, async (req, res) => {
+  try {
+    const PostData = await User.findOne({
+      where:{id:req.params.id},
+      include: [
+        // Post,
+        // {
+        //   model: Comment,
+        //   include: [User],
+        // },
+      ],
+    });
+console.log(PostData)
+    if (PostData) {
+      const post = PostData.get({ plain: true });
 
-  res.render('profile', {loggedIn: true});
+      res.render('profile', { post, loggedIn: true });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  } 
 });
 
 router.get('/login', (req, res) => {
