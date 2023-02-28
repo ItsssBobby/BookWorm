@@ -27,16 +27,16 @@ router.get('/', async (req, res) => {
 });
 
 // get single Post
-router.get('/post/:id', async (req, res) => {
+router.get('/post/', async (req, res) => {
   try {
     const PostData = await Post.findByPk(req.params.id, {
-      include: [
-        User,
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
+      // include: [
+      //   User,
+      //   {
+      //     model: Comment,
+      //     include: [User],
+      //   },
+      // ],
     });
 
     if (PostData) {
@@ -51,29 +51,13 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-router.get('/profile/:id', withAuth, async (req, res) => {
-  try {
-    const PostData = await User.findOne({
-      where:{id:req.params.id},
-      include: [
-        // Post,
-        // {
-        //   model: Comment,
-        //   include: [User],
-        // },
-      ],
-    });
-console.log(PostData)
-    if (PostData) {
-      const post = PostData.get({ plain: true });
+router.get('/profile/', withAuth, async (req, res) => {
 
-      res.render('profile', { post, loggedIn: true });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  } 
+      res.render('profile', {loggedIn: true });
+    // } else {
+    //   res.status(404).end();
+    // } catch (err) {
+    // res.status(500).json(err); 
 });
 
 router.get('/login', (req, res) => {
