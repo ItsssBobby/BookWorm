@@ -14,7 +14,7 @@ router.get('/allposts', withAuth, async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth,  async (req, res) => {
   try {
     if (req.session.loggedIn) {
       res.redirect('/allposts');
@@ -54,10 +54,7 @@ router.get('/post/', async (req, res) => {
 router.get('/profile/', withAuth, async (req, res) => {
 
       res.render('profile', {loggedIn: true });
-    // } else {
-    //   res.status(404).end();
-    // } catch (err) {
-    // res.status(500).json(err); 
+
 });
 
 router.get('/login', (req, res) => {
