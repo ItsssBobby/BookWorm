@@ -1,7 +1,44 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.7.5/foundation.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.7.5/js/foundation.min.js"></script>
+</head>
 
 <body>
-    <h2>BookWorm</h2>
-    <form id="signup-form" name="signup" method="post" action="/signup">
+    {{!-- <h2>BookWorm</h2> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<form>
+  <div class="form-icons">
+    <h4>Register for an account</h4>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-user"></i>
+      </span>
+      <input class="input-group-field" type="text" placeholder="Full name">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-envelope"></i>
+      </span>
+      <input class="input-group-field" type="text" placeholder="Email">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-key"></i>
+      </span>
+      <input class="input-group-field" type="text" placeholder="Password">
+    </div>
+  </div>
+
+  <button class="button expanded">Sign Up</button>
+</form>
+
+
+    
+    {{!-- <form id="signup-form" name="signup" method="post" action="/signup">
         <label for="email">Email Address: </label>
         <input id="email-signup" class="text" name="email" type="email" />
         <label for="username">Username: </label>
@@ -9,7 +46,7 @@
         <label for="password">Password: </label>
         <input id="password-signup" name="password" type="password" />
         <input class="btn" type="submit" value="Sign Up" />
-    </form>
+    </form> --}}
 </body>
 
 <script src="/js/signup.js"></script>
