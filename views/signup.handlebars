@@ -7,7 +7,7 @@
     {{!-- <h2>BookWorm</h2> --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
-<form>
+<form id="signup-form" name="signup" method="post" action="/signup">
   <div class="form-icons">
     <h4>Register for an account</h4>
 
@@ -15,25 +15,25 @@
       <span class="input-group-label">
         <i class="fa fa-user"></i>
       </span>
-      <input class="input-group-field" type="text" placeholder="Username">
+      <input id= "name-signup" class="input-group-field" type="text" placeholder="Username">
     </div>
 
     <div class="input-group">
       <span class="input-group-label">
         <i class="fa fa-envelope"></i>
       </span>
-      <input class="input-group-field" type="text" placeholder="Email">
+      <input id= "email-signup" class="input-group-field" type="text" placeholder="Email">
     </div>
 
     <div class="input-group">
       <span class="input-group-label">
         <i class="fa fa-key"></i>
       </span>
-      <input class="input-group-field" type="text" placeholder="Password">
+      <input id= "password-signup" class="input-group-field" type="password" placeholder="Password">
     </div>
   </div>
 
-  <button class="button expanded">Sign Up</button>
+  <button class="button expanded" type="submit" value="Sign Up">Sign Up</button>
 </form>
 
 
