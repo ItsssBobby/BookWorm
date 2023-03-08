@@ -1,27 +1,26 @@
   <head>
-    <link rel="stylesheet" href="/public/css/login.css">
+    {{!-- <link rel="stylesheet" href="/public/css/login.css"> --}}
+    <!-- Compressed CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
+
+<!-- Compressed JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
   </head>
 
 <body>
-    <form>
-  <div class="sign-in-form">
-    <h4 class="text-center">Sign In</h4>
-    <label for="sign-in-form-username">Username</label>
-    <input type="text" class="sign-in-form-username" id="sign-in-form-username">
-    <label for="sign-in-form-password">Password</label>
-    <input type="text" class="sign-in-form-password" id="sign-in-form-password">
-    <button type="submit" class="sign-in-form-button">Sign In</button>
-  </div>
+<form class="log-in-form">
+  <h4 class="text-center">Log in with you email account</h4>
+  <label>Email
+    <input type="email" placeholder="somebody@example.com">
+  </label>
+  <label>Password
+    <input type="password" placeholder="Password">
+  </label>
+  <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+  <p><input type="submit" class="button expanded" value="Log in"></input></p>
+  <p class="text-center"><a href="#">Forgot your password?</a></p>
 </form>
 
 
-    {{!-- <h2>BookWorm</h2>
-    <form class="sign-in-form" id="login-form" name="signin" method="post" action="signin">
-        <label for="email">Username</label>
-        <input id="username" class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input id="password-login" name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
-    </form> --}}
 </body>
 <script src="/js/login.js"></script>
