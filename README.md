@@ -3,31 +3,29 @@
 - [Description](#description) 
 - [Installation](#installation) 
 - [Usage](#usage) 
-- [Questions](#questions)
 - [Contributors](#contributors)
-- [Tests](#tests)
-- [License](#license)
 
 ## Description
 BookWorm is an app that connects readers! With our app, users can upload book reviews for other users to see and interact with. 
 
 ## Installation
-Users will open their terminal and enter "npm run watch".
+Clone the repo, use "npm i", set up your server and use "npm run"
 
 ## Usage
-Our app will be used to upload book reviews.
+Register an account:
 
-## Questions
+![sign-up page](./public/images/register.png)
 
+Navigate to your profile:
+
+![profile page](./public/images/post.png)
+
+Go to the homepage by clicking "BookWorm" in the top left of the window:
+
+![profile page](./public/images/homepage.png)
 
 ## Contributors
-github: @ItsssBobby 
-github: @JamaiaB
+[@ItsssBobby](https://github.com/ItsssBobby)
 
+[@JamaiaB](https://github.com/JamaiaB)
 
-## Tests
-
-
-
-
-## License
