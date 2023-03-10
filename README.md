@@ -12,6 +12,8 @@ BookWorm is an app that connects readers! With our app, users can upload book re
 Clone the repo, use "npm i", set up your server and use "npm run"
 
 ## Usage
+[Go to the deployed application](https://boookwormm.herokuapp.com/signup)
+
 Register an account:
 
 ![sign-up page](./public/images/register.png)
